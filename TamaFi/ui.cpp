@@ -8,8 +8,8 @@
 #include "effect.h"
 #include "background.h"
 
-static const int TFT_W = 240;
-static const int TFT_H = 240;
+static const int TFT_W = TAMAFI_UI_WIDTH;
+static const int TFT_H = TAMAFI_UI_HEIGHT;
 static const int PET_W = 115;
 static const int PET_H = 110;
 static const int EFFECT_W = 100;
@@ -190,7 +190,7 @@ static void screenBoot() {
     fb.print("WiFi-fed Virtual Pet");
 
     fb.setCursor(20, 100);
-    fb.print("Press any button...");
+    fb.print("Tap to start...");
 
     fb.pushSprite(0, 0);
 }
@@ -199,7 +199,7 @@ static void screenBoot() {
 // HATCH SCREEN (Idle egg → OK → hatch → home)
 // ---------------------------------------------------------------------------
 static void screenHatch() {
-    ledcWriteTone(5, 0);
+    sndStop();
     fb.fillSprite(TFT_BLACK);
     drawHeader("Hatching...");
 
@@ -412,7 +412,7 @@ static void screenMenu(int mainMenuIndex) {
 
     fb.setCursor(10, 200);
     fb.setTextColor(TFT_WHITE);
-    fb.print("UP/DOWN = move | OK = select");
+    fb.print("Tap item to select");
 
     fb.pushSprite(0, 0);
 }
@@ -461,7 +461,7 @@ static void screenPetStatus() {
     fb.print("Stress   : "); fb.print((int)traitStress);
 
     fb.setCursor(10, 200);
-    fb.print("OK = Back");
+    fb.print("Tap = Back");
 
     fb.pushSprite(0, 0);
 }
@@ -494,7 +494,7 @@ static void screenEnvironment() {
     fb.print("Avg RSSI : "); fb.print(wifiStats.avgRSSI);
 
     fb.setCursor(10, 200);
-    fb.print("OK = Back");
+    fb.print("Tap = Back");
 
     fb.pushSprite(0, 0);
 }
@@ -532,7 +532,7 @@ static void screenSysInfo() {
     fb.print(wifiScanInProgress ? "Running" : "Idle");
 
     fb.setCursor(10, 200);
-    fb.print("OK = Back");
+    fb.print("Tap = Back");
 
     fb.pushSprite(0, 0);
 }
@@ -592,7 +592,7 @@ static void screenControls(int controlsIndex) {
     }
 
     fb.setCursor(10, 200);
-    fb.print("OK = Select/Back");
+    fb.print("Tap item to change");
 
     fb.pushSprite(0, 0);
 }
@@ -641,7 +641,7 @@ static void screenSettings(int settingsMenuIndex) {
     }
 
     fb.setCursor(10, 200);
-    fb.print("OK = Select");
+    fb.print("Tap item to select");
 
     fb.pushSprite(0, 0);
 }
@@ -674,7 +674,7 @@ static void screenDiagnostics() {
     fb.print(wifiScanInProgress?"Running":"Idle");
 
     fb.setCursor(10, 200);
-    fb.print("OK = Back");
+    fb.print("Tap = Back");
 
     fb.pushSprite(0, 0);
 }
@@ -701,7 +701,7 @@ static void screenGameOver() {
 
     //fb.setCursor(10, 200);
     //fb.setTextColor(TFT_WHITE);
-    //fb.print("OK = Restart");
+    //fb.print("Tap = Restart");
 
     fb.pushSprite(0, 0);
 }

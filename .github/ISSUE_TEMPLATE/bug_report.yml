@@ -1,0 +1,60 @@
+name: Bug report
+description: Report a reproducible firmware or documentation bug.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail to reproduce it.
+  - type: dropdown
+    id: board
+    attributes:
+      label: Board
+      options:
+        - LCDWiki ESP32-S3 ES3C28P
+        - Waveshare ESP32-C6-Touch-LCD-1.47
+        - Original TamaFi custom board
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit or branch
+      placeholder: main, commit hash, or release tag
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Build with ...
+        2. Upload to ...
+        3. Tap ...
+        4. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Build or serial output
+      render: text
+  - type: textarea
+    id: extra
+    attributes:
+      label: Extra context
+      description: Photos or short videos are useful for display, touch, LED, and audio issues.

@@ -1,0 +1,45 @@
+name: Hardware bring-up
+description: Track a new board, display, touch, LED, or audio port.
+title: "[Bring-up]: "
+labels: ["hardware", "bring-up"]
+body:
+  - type: input
+    id: board
+    attributes:
+      label: Board name
+      placeholder: Manufacturer, exact model, revision
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Vendor documentation links
+      placeholder: Wiki, schematic, example zip, datasheet
+    validations:
+      required: true
+  - type: textarea
+    id: pinout
+    attributes:
+      label: Pinout
+      placeholder: Display, touch, backlight, LEDs, audio, buttons, power notes
+    validations:
+      required: true
+  - type: textarea
+    id: display
+    attributes:
+      label: Display status
+      placeholder: Driver, resolution, rotation, offsets, colors, flicker
+  - type: textarea
+    id: touch
+    attributes:
+      label: Touch status
+      placeholder: Controller, I2C address, raw coordinates, rotation mapping
+  - type: textarea
+    id: outputs
+    attributes:
+      label: LED/audio/buttons status
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests performed
+      placeholder: Build command, upload port, physical checks

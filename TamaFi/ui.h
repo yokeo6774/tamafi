@@ -1,13 +1,15 @@
 #pragma once
 #include <Arduino.h>
-#include <TFT_eSPI.h>
+#include "hardware_profile.h"
+#include "display_backend.h"
 
 // ============ Enums & structs shared between UI and main ============
 
 void sndHatch();
+void sndStop();
 
-int petPosX = 120;
-int petPosY = 90;
+extern int petPosX;
+extern int petPosY;
 
 enum Screen {
   SCREEN_BOOT,
@@ -75,10 +77,10 @@ struct WifiStats {
 
 // ============ Extern objects from main (TFT & sprites) ============
 
-extern TFT_eSPI tft;
-extern TFT_eSprite fb;
-extern TFT_eSprite petSprite;
-extern TFT_eSprite effectSprite;
+extern TamaFiDisplay tft;
+extern TamaFiSprite fb;
+extern TamaFiSprite petSprite;
+extern TamaFiSprite effectSprite;
 
 // ============ Shared game state (defined in TamaFi.ino) ============
 
