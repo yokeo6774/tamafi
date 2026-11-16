@@ -284,13 +284,13 @@ static void codecPlayToneBlocking(uint32_t freq, uint16_t durationMs) {
       buffer[i * 2] = sample;
       buffer[i * 2 + 1] = sample;
     }
-    codecI2S.write((const uint8_t *)buffer, n * 2 * sizeof(int16_t));
+    codecI2S.write((uint8_t *)buffer, n * 2 * sizeof(int16_t));
     samplesLeft -= n;
   }
 
   if (freq != 0) {
     memset(buffer, 0, sizeof(buffer));
-    codecI2S.write((const uint8_t *)buffer, sizeof(buffer));
+    codecI2S.write((uint8_t *)buffer, sizeof(buffer));
   }
 }
 #endif
